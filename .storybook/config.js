@@ -6,12 +6,12 @@ setOptions({
    * content to display in the top left corner
    * @type {String}
    */
-  name: "react-typescript-component-starter-kit",
+  name: "inline-editable",
   /**
    * URL for content in top left corner to link to
    * @type {String}
    */
-  url: "https://github.com/ritz078/react-typescript-component-starter-kit",
+  url: "https://github.com/rcdexta/inline-editable",
   /**
    * show addon panel as a vertical panel on the right
    * @type {Boolean}

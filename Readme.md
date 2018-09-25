@@ -1,15 +1,10 @@
-# react-typescript-component-starter-kit
+# inline-editable
 
-> A React component starter kit written in Typescript using the power of Babel 7 and Webpack 4.
-
-#### There are already so many starter kits. Why this?
-
-> Yes, I am already aware of those but setting up Babel 7 with storybook and typescript was [not that straightforward](https://twitter.com/ritz078/status/1029784078508118016) 😥. This repo is mainly for that. Other things are just extras which I use personally.
+> Performant inline editable form elements 
 
 ### Features
 
 - [Typescript](https://www.typescriptlang.org/)
-- [emotion](https://emotion.sh/)
 - [Babel](https://babeljs.io/) 7
 - [Webpack](https://webpack.js.org/) 4
 - [Storybook](https://storybook.js.org/) (all the necessary addons)
