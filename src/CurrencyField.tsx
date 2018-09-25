@@ -32,9 +32,9 @@ export default class CurrencyField extends React.Component<ICurrencyFieldProps, 
     return (
       <NumberField
         value={value}
+        displayContent={this.humanize(value)}
         disabled={disabled}
         onChange={onChange}
-        renderView={node => <span>$ {node}</span>}
       />
     )
   }

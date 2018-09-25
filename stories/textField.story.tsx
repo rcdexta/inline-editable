@@ -1,6 +1,6 @@
-import * as React from "react";
-import { storiesOf } from "@storybook/react";
-import TextField from "../src/TextField";
+import * as React from 'react'
+import {storiesOf} from '@storybook/react'
+import TextField from '../src/TextField'
 
 interface ITFState {
   text: string
@@ -19,14 +19,18 @@ class TextFieldStory extends React.Component<ITFProps, ITFState> {
   }
 
   render() {
-    return <TextField content={this.state.text} onChange={this.onChange} {...this.props} />
+    return (
+      <TextField
+        content={this.state.text}
+        onChange={this.onChange}
+        {...this.props}
+      />
+    )
   }
 }
 
 storiesOf('Inline Editable', module).add('TextField', () => (
   <div style={{width: 300}}>
-
-    <TextFieldStory text='This value can be changed inline' />
-
+    <TextFieldStory text="This value can be changed inline" />
   </div>
 ))

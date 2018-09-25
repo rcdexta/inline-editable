@@ -3,9 +3,9 @@ import * as React from "react";
 
 export interface INumberFieldProps {
   value: number
+  displayContent?: string
   disabled: boolean
   onChange(newValue: number)
-  renderView?: (node: React.ReactNode)  => JSX.Element
 }
 
 export default class NumberField extends React.Component<INumberFieldProps, {}> {
@@ -37,14 +37,14 @@ export default class NumberField extends React.Component<INumberFieldProps, {}> 
   }
 
   render() {
-    const {disabled, renderView} = this.props
+    const {disabled, displayContent} = this.props
     return (
       <ContentEditable
         content={this.content()}
+        displayContent={displayContent}
         disabled={disabled}
         onChange={this.onChange}
         onKeyPress={this.handleKeyPress}
-        renderView={renderView}
       />
     )
   }

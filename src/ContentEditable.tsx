@@ -5,9 +5,13 @@ export interface IContentEditableProps {
   content: string
   disabled: boolean
   onChange(newValue: string)
+  displayContent?: string
   onKeyDown?: (event: React.KeyboardEvent) => void
   onKeyPress?: (event: React.KeyboardEvent) => void
-  renderView?: (node: React.ReactNode)  => JSX.Element
+}
+
+export interface IContentEditableState {
+  editing: boolean
 }
 
 class ContentEditable extends React.Component<IContentEditableProps, {}> {
@@ -17,10 +21,27 @@ class ContentEditable extends React.Component<IContentEditableProps, {}> {
     onKeyPress: () => {}
   }
 
+  state = {editing: false}
+
   private elem: HTMLDivElement | null
 
-  shouldComponentUpdate(nextProps: IContentEditableProps) {
-    return nextProps.content !== this.props.content || nextProps.disabled !== this.props.disabled
+  shouldComponentUpdate(nextProps: IContentEditableProps, nextState: IContentEditableState) {
+    return (
+      nextProps.content !== this.props.content ||
+      nextProps.disabled !== this.props.disabled ||
+      nextState.editing !== this.state.editing
+    )
+  }
+
+  selectAll = () => {
+    let sel, range
+    if (window.getSelection && document.createRange) {
+      range = document.createRange()
+      range.selectNodeContents(this.elem)
+      sel = window.getSelection()
+      sel.removeAllRanges()
+      sel.addRange(range)
+    }
   }
 
   handleKeyDown = (evt: React.KeyboardEvent) => {
@@ -32,24 +53,33 @@ class ContentEditable extends React.Component<IContentEditableProps, {}> {
   }
 
   finishEditing = () => {
-    const newValue = this.elem && this.elem.innerText
+    const newValue = this.elem && this.elem.innerHTML
+    this.setState({editing: false})
     this.props.onChange(newValue)
   }
 
+  startEditing = () => {
+    const {disabled} = this.props
+    !disabled && this.setState({editing: true}, () => this.selectAll())
+  }
+
+  content = (): string => {
+    const {content, displayContent} = this.props
+    return this.state.editing ? content : displayContent ? displayContent : content
+  }
+
   render() {
-    const {renderView, content, disabled, onKeyPress} = this.props
-    let contentEditableNode = <StyledView
+    const {disabled, onKeyPress} = this.props
+    return <StyledView
       suppressContentEditableWarning
       innerRef={elem => (this.elem = elem)}
       contentEditable={!disabled}
-      dangerouslySetInnerHTML={{__html: content}}
+      dangerouslySetInnerHTML={{__html: this.content()}}
+      onClick={this.startEditing}
       onBlur={this.finishEditing}
       onKeyDown={this.handleKeyDown}
       onKeyPress={onKeyPress}
-    />;
-    return (
-      renderView ? renderView(contentEditableNode) : contentEditableNode
-    )
+    />
   }
 }
 
