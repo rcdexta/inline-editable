@@ -2,7 +2,6 @@ import styled from './styled-components'
 
 export const StyledView = styled.span`
   font-size: 13px;
-  font-family: sans-serif;
 
   &[contenteditable=true]:hover {
     border-bottom: 1px dashed #777;
