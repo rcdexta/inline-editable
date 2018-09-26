@@ -1,6 +1,6 @@
 {
   "name": "inline-editable",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "main": "dist/plugin.js",
   "module": "dist/plugin.es.js",
   "typings": "dist/index.d.ts",
@@ -25,13 +25,18 @@
     "format": "pretty-quick",
     "now-build": "npm run build-storybook",
     "now-start": "cd storybook-static && serve",
-    "deploy": "npm run now-build && cd storybook-static && now"
+    "deploy": "npm run now-build && cd storybook-static && now",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release",
+    "commit": "git cz"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
     "@storybook/addon-a11y": "^v4.0.0-alpha.20",
     "@storybook/addon-actions": "^v4.0.0-alpha.20",
     "@storybook/addon-backgrounds": "^v4.0.0-alpha.20",
@@ -59,6 +64,8 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "chokidar": "^2.0.4",
     "codecov": "^3.1.0",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
     "docz": "^0.11.2",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
@@ -66,6 +73,7 @@
     "jest": "^23.6.0",
     "jest-dom": "^1.12.1",
     "jest-emotion": "^9.2.7",
+    "lint-staged": "^7.3.0",
     "moment": "^2.22.2",
     "prettier": "^1.14.2",
     "pretty-quick": "^1.6.0",
@@ -78,8 +86,10 @@
     "rollup-plugin-filesize": "^4.0.1",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
+    "semantic-release": "^15.9.16",
     "serve": "^10.0.1",
     "sinon": "^6.3.3",
+    "travis-deploy-once": "^5.0.8",
     "ts-jest": "^23.1.4",
     "typescript": "3.0.3",
     "webpack": "^4.19.0"
@@ -116,5 +126,25 @@
     "react": "^16.5.1",
     "react-testing-library": "^5.1.0",
     "styled-components": "^3.4.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcdexta/inline-editable.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS || (echo '\nThis package is commitizen friendly (commitizen.github.io/cz-cli)\n\nTry running:\n$ npm install -g commitizen\n$ git cz\n' && exit 1)"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm test -- --findRelatedTests"
+    ]
   }
 }

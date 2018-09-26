@@ -1,10 +1,20 @@
 language: node_js
+cache:
+  directories:
+    - ~/.npm
+    - yarn
+notifications:
+  email: false
 node_js:
-  - "10"
+  - '10'
 env:
   - CI=true
-cache: yarn
 git:
   depth: 5
 script:
   - yarn test:cover
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
