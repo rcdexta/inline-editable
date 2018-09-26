@@ -29,7 +29,6 @@ export const SelectSpan = styled.span`
 `
 
 export const StyledSelect = styled.select`
-  font-size: 1.2em;
   position: absolute;
   top: 0;
   left: 0;

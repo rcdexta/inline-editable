@@ -1,22 +1,20 @@
 import styled from './styled-components'
 
 export const StyledView = styled.span`
-  font-size: 13px;
-
-  &[contenteditable=true]:hover {
+  &[contenteditable='true']:hover {
     border-bottom: 1px dashed #777;
     cursor: text;
-  } 
-  
-  &[contenteditable=false]:hover {
+  }
+
+  &[contenteditable='false']:hover {
     cursor: not-allowed;
   }
 
-  &[contenteditable=true]:focus {
+  &[contenteditable='true']:focus {
     outline: none;
     border-bottom: 1px dashed #00aeed;
   }
-  
+
   &:empty:focus {
     min-width: 5px;
     display: inline-block;
