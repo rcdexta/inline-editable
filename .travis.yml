@@ -14,7 +14,7 @@ git:
 script:
   - yarn test:cover
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - yarn run travis-deploy-once "yarn run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
