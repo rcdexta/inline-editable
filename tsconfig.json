@@ -1,4 +1,30 @@
 {
-  "extends": "./tsconfig.base.json",
-  "include": ["src", "stories", "types", "tests", "src/**/__tests__"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "isolatedModules": false,
+    "pretty": true,
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["dom", "es2015", "es2016"]
+  },
+  "includes": ["src"],
+  "exclude": ["node_modules", "dist", "stories", "tests", "compiled", "src/**/__tests__"]
 }

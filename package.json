@@ -1,10 +1,10 @@
 {
   "name": "react-inline-components",
   "version": "0.0.0-development",
-  "main": "dist/plugin.js",
-  "module": "dist/plugin.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "unpkg": "dist/plugin.umd.js",
+  "unpkg": "dist/index.js",
   "author": "rcdexta <rc.chandru@gmail.com>",
   "files": [
     "dist"
@@ -13,7 +13,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "npm run build && rimraf storybook-static && build-storybook",
-    "build": "rimraf dist && tsc -p tsconfig.base.json && rollup -c && rimraf compiled",
+    "build": "tsc",
     "build:watch": "chokidar 'src/**/*.ts' 'src/**/*.tsx' -c 'npm run build'",
     "test:cover": "npm run test && codecov",
     "test": "jest",
@@ -77,6 +77,7 @@
     "moment": "^2.22.2",
     "prettier": "^1.14.2",
     "pretty-quick": "^1.6.0",
+    "react-testing-library": "^5.1.0",
     "react-test-renderer": "^16.5.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.0",
@@ -124,7 +125,6 @@
   },
   "dependencies": {
     "react": "^16.5.1",
-    "react-testing-library": "^5.1.0",
     "styled-components": "^3.4.9"
   },
   "repository": {
