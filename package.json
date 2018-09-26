@@ -27,7 +27,7 @@
     "now-start": "cd storybook-static && serve",
     "deploy": "npm run now-build && cd storybook-static && now",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit": "git cz"
   },
   "devDependencies": {
