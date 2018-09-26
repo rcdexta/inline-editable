@@ -1,9 +1,9 @@
-import React from "react";
+import * as React from "react";
 import { StyledView } from "./styles/TextField";
 
 export interface IContentEditableProps {
   content: string
-  disabled: boolean
+  disabled?: boolean
   onChange(newValue: string)
   displayContent?: string
   onKeyDown?: (event: React.KeyboardEvent) => void
@@ -59,8 +59,8 @@ class ContentEditable extends React.Component<IContentEditableProps, {}> {
   }
 
   startEditing = () => {
-    const {disabled} = this.props
-    !disabled && this.setState({editing: true}, () => this.selectAll())
+    const {disabled, displayContent} = this.props
+    !disabled && this.setState({editing: true}, () => displayContent && this.selectAll())
   }
 
   content = (): string => {
@@ -74,6 +74,7 @@ class ContentEditable extends React.Component<IContentEditableProps, {}> {
       suppressContentEditableWarning
       innerRef={elem => (this.elem = elem)}
       contentEditable={!disabled}
+      placeholder='click to edit'
       dangerouslySetInnerHTML={{__html: this.content()}}
       onClick={this.startEditing}
       onBlur={this.finishEditing}

@@ -6,7 +6,8 @@ export const StyledView = styled.span`
 
   &[contenteditable=true]:hover {
     border-bottom: 1px dashed #777;
-  }
+    cursor: text;
+  } 
   
   &[contenteditable=false]:hover {
     cursor: not-allowed;
@@ -16,9 +17,15 @@ export const StyledView = styled.span`
     outline: none;
     border-bottom: 1px dashed #00aeed;
   }
+  
+  &:empty:focus {
+    min-width: 5px;
+    display: inline-block;
+  }
 
   &:empty:not(:focus):before {
     content: attr(placeholder);
-    color: gray;
+    color: #233040;
+    opacity: 0.5;
   }
 `

@@ -20,7 +20,7 @@ export default class CurrencyField extends React.Component<ICurrencyFieldProps, 
           return money + (i && !(i % 3) ? ',' : '') + acc
         }, '')
     )
-    return `${value}.${cents}`
+    return parseInt(cents) !== 0 ? [value, cents].join('.') : value
   }
 
   shouldComponentUpdate(nextProps: ICurrencyFieldProps) {

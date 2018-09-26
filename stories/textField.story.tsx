@@ -20,11 +20,9 @@ class TextFieldStory extends React.Component<ITFProps, ITFState> {
 
   render() {
     return (
-      <TextField
-        content={this.state.text}
-        onChange={this.onChange}
-        {...this.props}
-      />
+      <div style={{margin: 50}}>
+        <TextField content={this.state.text} onChange={this.onChange} {...this.props} />
+      </div>
     )
   }
 }
@@ -32,5 +30,7 @@ class TextFieldStory extends React.Component<ITFProps, ITFState> {
 storiesOf('Inline Editable', module).add('TextField', () => (
   <div style={{width: 300}}>
     <TextFieldStory text="This value can be changed inline" />
+    <TextFieldStory text="Also this value can be changed" />
+    <TextFieldStory text={null} />
   </div>
 ))
