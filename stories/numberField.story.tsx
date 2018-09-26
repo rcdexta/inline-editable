@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {storiesOf} from '@storybook/react'
-import NumberField from '../src/NumberField'
+import {NumberField} from '../src'
 
 interface ITFState {
   value: number

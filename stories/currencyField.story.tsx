@@ -1,6 +1,6 @@
-import * as React from "react";
-import { storiesOf } from "@storybook/react";
-import CurrencyField from "../src/CurrencyField";
+import * as React from 'react'
+import {storiesOf} from '@storybook/react'
+import {CurrencyField} from '../src'
 
 interface ICFState {
   value: number

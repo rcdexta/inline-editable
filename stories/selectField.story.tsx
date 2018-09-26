@@ -1,6 +1,6 @@
-import * as React from "react";
-import { storiesOf } from "@storybook/react";
-import SelectField from "../src/SelectField";
+import * as React from 'react'
+import {storiesOf} from '@storybook/react'
+import {SelectField} from '../src'
 
 interface ITFState {
   value: string
