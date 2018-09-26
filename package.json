@@ -1,5 +1,5 @@
 {
-  "name": "inline-editable",
+  "name": "react-inline-components",
   "version": "0.0.0-development",
   "main": "dist/plugin.js",
   "module": "dist/plugin.es.js",
