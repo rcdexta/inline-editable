@@ -3,16 +3,19 @@
     [
       "@babel/preset-env",
       {
-        "targets": { "node": "6" },
+        "targets": {"node": "6"},
         "modules": false
       }
     ],
     "@babel/preset-react"
   ],
-  "plugins": ["@babel/plugin-proposal-object-rest-spread"],
+  "plugins": ["emotion", "@babel/plugin-proposal-object-rest-spread"],
   "env": {
     "test": {
-      "plugins": ["require-context-hook"]
+      "plugins": [["emotion", {"sourceMap": true, "autoLabel": true, "labelFormat": "⚡[local]"}], "require-context-hook"]
+    },
+    "development": {
+      "plugins": [["emotion", { "sourceMap": true, "autoLabel": true, "labelFormat": "⚡[local]" }]]
     }
   }
 }

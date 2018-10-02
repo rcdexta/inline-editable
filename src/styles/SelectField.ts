@@ -1,6 +1,6 @@
-import styled from './styled-components'
+import styled from 'react-emotion'
 
-export const SelectSpan = styled.span`
+export const SelectSpan = styled('span')`
   border-bottom: 1px solid rgba(0, 0, 0, 0.33);
   overflow: hidden;
   padding-right: 1em;
@@ -12,6 +12,7 @@ export const SelectSpan = styled.span`
     position: absolute;
     top: 50%;
     right: 0;
+    cursor: pointer;
     display: block;
     content: '';
     height: 0;
@@ -28,12 +29,13 @@ export const SelectSpan = styled.span`
   }
 `
 
-export const StyledSelect = styled.select`
+export const StyledSelect = styled('select')`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   opacity: 0;
+  cursor: pointer;
   z-index: 1;
 `

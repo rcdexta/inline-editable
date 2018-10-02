@@ -57,10 +57,10 @@
     "@types/react-test-renderer": "^16.0.2",
     "@types/sinon": "^5.0.2",
     "@types/storybook__react": "^3.0.9",
-    "@types/styled-components": "^3.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^7.0.0-0",
     "babel-loader": "^8.0.2",
+    "babel-plugin-emotion": "^9.2.11",
     "babel-plugin-require-context-hook": "^1.0.0",
     "chokidar": "^2.0.4",
     "codecov": "^3.1.0",
@@ -72,13 +72,13 @@
     "husky": "^0.14.3",
     "jest": "^23.6.0",
     "jest-dom": "^1.12.1",
-    "jest-emotion": "^9.2.7",
+    "jest-emotion": "^9.2.11",
     "lint-staged": "^7.3.0",
     "moment": "^2.22.2",
     "prettier": "^1.14.2",
     "pretty-quick": "^1.6.0",
-    "react-testing-library": "^5.1.0",
     "react-test-renderer": "^16.5.1",
+    "react-testing-library": "^5.1.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.66.0",
     "rollup-plugin-babel": "4.0.3",
@@ -96,6 +96,9 @@
     "webpack": "^4.19.0"
   },
   "jest": {
+    "snapshotSerializers": [
+      "jest-emotion"
+    ],
     "globals": {
       "ts-jest": {
         "useBabelrc": true
@@ -124,8 +127,9 @@
     "coverageDirectory": "<rootDir>/coverage"
   },
   "dependencies": {
+    "emotion": "^9.2.12",
     "react": "^16.5.1",
-    "styled-components": "^3.4.9"
+    "react-emotion": "^9.2.12"
   },
   "repository": {
     "type": "git",

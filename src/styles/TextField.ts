@@ -1,6 +1,6 @@
-import styled from './styled-components'
+import styled from 'react-emotion'
 
-export const StyledView = styled.span`
+export const StyledView = styled('span')`
   &[contenteditable='true']:hover {
     border-bottom: 1px dashed #777;
     cursor: text;

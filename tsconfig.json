@@ -1,31 +1,4 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "declaration": true,
-    "declarationDir": "dist",
-    "target": "es5",
-    "module": "esnext",
-    "jsx": "react",
-    "rootDir": "src",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "experimentalDecorators": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "outDir": "dist",
-    "isolatedModules": false,
-    "pretty": true,
-    "typeRoots": ["./node_modules/@types"],
-    "lib": ["dom", "es6"]
-  },
-  "includes": ["src"],
-  "exclude": ["node_modules", "dist", "stories", "tests", "compiled", "src/**/__tests__"]
+  "extends": "./tsconfig.base.json",
+  "include": ["src", "stories", "types", "tests", "src/**/__tests__"]
 }

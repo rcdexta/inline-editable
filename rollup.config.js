@@ -14,10 +14,7 @@ const plugins = [
     extensions: ['.js', '.jsx', '.json']
   }),
   commonjs({
-    include: 'node_modules/**',
-    namedExports: {
-      'node_modules/styled-components/node_modules/react-is/index.js': ['isValidElementType']
-    }
+    include: 'node_modules/**'
   }),
   cleanup(),
   sourceMaps(),
