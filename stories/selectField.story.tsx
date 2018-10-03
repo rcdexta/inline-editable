@@ -24,6 +24,7 @@ class SelectFieldStory extends React.Component<ITFProps, ITFState> {
         <SelectField
           value={this.state.value}
           onChange={this.onChange}
+          disabled={this.props.disabled}
           options={{p1: 'Product 1', p2: 'Product 2 ', p3: 'Product 3'}}
         />
       </div>
@@ -34,5 +35,9 @@ class SelectFieldStory extends React.Component<ITFProps, ITFState> {
 storiesOf('Inline Editable', module).add('SelectField', () => (
   <div style={{width: 300}}>
     <SelectFieldStory value={'p1'} />
+    <br />
+    <SelectFieldStory value={'p3'} />
+    <br />
+    <SelectFieldStory value={'p2'} disabled />
   </div>
 ))

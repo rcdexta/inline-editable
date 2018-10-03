@@ -1,16 +1,18 @@
-import ContentEditable from "./ContentEditable";
-import * as React from "react";
+import ContentEditable from './ContentEditable'
+import * as React from 'react'
 
 export interface INumberFieldProps {
   value: number
   displayContent?: string
-  disabled: boolean
+  disabled?: boolean
+  selectOnFocus?: boolean
   onChange(newValue: number)
 }
 
 export default class NumberField extends React.Component<INumberFieldProps, {}> {
   static defaultProps: Partial<INumberFieldProps> = {
-    disabled: false
+    disabled: false,
+    selectOnFocus: true
   }
 
   shouldComponentUpdate(nextProps: INumberFieldProps) {
@@ -37,12 +39,13 @@ export default class NumberField extends React.Component<INumberFieldProps, {}> 
   }
 
   render() {
-    const {disabled, displayContent} = this.props
+    const {disabled, displayContent, selectOnFocus} = this.props
     return (
       <ContentEditable
         content={this.content()}
         displayContent={displayContent}
         disabled={disabled}
+        selectOnFocus={selectOnFocus}
         onChange={this.onChange}
         onKeyPress={this.handleKeyPress}
       />

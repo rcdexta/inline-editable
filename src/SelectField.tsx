@@ -27,20 +27,22 @@ class SelectField extends React.Component<ISelectFieldProps, {}> {
   }
 
   render() {
-    const {options, value} = this.props
+    const {options, disabled, value} = this.props
     return (
       <SelectSpan>
         {options[value]}
-        <StyledSelect onChange={this.handleChange} value={value}>
-          {Object.keys(options).map(key => {
-            const val = options[key]
-            return (
-              <option value={key} key={key}>
-                {val}
-              </option>
-            )
-          })}
-        </StyledSelect>
+        {!disabled && (
+          <StyledSelect onChange={this.handleChange} value={value}>
+            {Object.keys(options).map(key => {
+              const val = options[key]
+              return (
+                <option value={key} key={key}>
+                  {val}
+                </option>
+              )
+            })}
+          </StyledSelect>
+        )}
       </SelectSpan>
     )
   }

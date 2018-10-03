@@ -6,6 +6,10 @@ export const StyledView = styled('span')`
     cursor: text;
   }
 
+  &[contenteditable='false'] {
+    opacity: 0.6;
+  }
+
   &[contenteditable='false']:hover {
     cursor: not-allowed;
   }
@@ -13,6 +17,7 @@ export const StyledView = styled('span')`
   &[contenteditable='true']:focus {
     outline: none;
     border-bottom: 1px dashed #00aeed;
+    background-color: cornsilk;
   }
 
   &:empty:focus {
