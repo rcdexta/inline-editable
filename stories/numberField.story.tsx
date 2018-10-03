@@ -28,6 +28,9 @@ storiesOf('Inline Editable', module).add('NumberField', () => (
     <NumberFieldStory value={100} />
     <br />
     <br />
+    <NumberFieldStory value={5000} />
+    <br />
+    <br />
     <NumberFieldStory value={200} disabled />
   </div>
 ))

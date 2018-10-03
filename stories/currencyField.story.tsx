@@ -28,6 +28,9 @@ storiesOf('Inline Editable', module).add('CurrencyField', () => (
     <CurrencyFieldStory value={1000} />
     <br />
     <br />
+    <CurrencyFieldStory value={50000} />
+    <br />
+    <br />
     <CurrencyFieldStory value={200000} disabled />
   </div>
 ))

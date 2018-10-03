@@ -79,6 +79,7 @@ class ContentEditable extends React.Component<IContentEditableProps, {}> {
         contentEditable={!disabled}
         placeholder="click to edit"
         dangerouslySetInnerHTML={{__html: this.content()}}
+        onFocus={this.startEditing}
         onClick={this.startEditing}
         onBlur={this.finishEditing}
         onKeyDown={this.handleKeyDown}
