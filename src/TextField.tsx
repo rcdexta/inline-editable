@@ -1,5 +1,5 @@
-import ContentEditable from "./ContentEditable";
+import ContentEditable, {IContentEditableProps} from './ContentEditable'
 
-export default class TextField extends ContentEditable {
+export type TextFieldProps = IContentEditableProps
 
-}
+export default class TextField extends ContentEditable {}

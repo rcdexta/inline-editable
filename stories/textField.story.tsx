@@ -8,6 +8,7 @@ interface ITFState {
 
 interface ITFProps {
   text: string
+  autofocus?: boolean
   disabled?: boolean
 }
 
@@ -31,6 +32,7 @@ storiesOf('Inline Editable', module).add('TextField', () => (
   <div style={{width: 500}}>
     <TextFieldStory text="Room addition Exterior shell: Second Story Flop. Or else there is no way to do that" />
     <TextFieldStory text="Also this value can be changed" />
+    <TextFieldStory text="This field should be focussed automatically" autofocus />
     <TextFieldStory text={null} />
   </div>
 ))
