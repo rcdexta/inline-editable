@@ -18,11 +18,10 @@ describe('component: CurrencyField', () => {
     expect(currencyNode.textContent).toBe('$ 200,000')
 
     fireEvent.click(currencyNode)
-    currencyNode.textContent = newValue.toString()
+    currencyNode.innerText = newValue.toString()
     fireEvent.blur(currencyNode)
 
     expect(handleChange).toHaveBeenCalledTimes(1)
     expect(handleChange).toHaveBeenCalledWith(newValue)
   })
-
 })

@@ -18,7 +18,7 @@ describe('component: TextField', () => {
 
     let textNode = container.querySelector('[contenteditable=true]') as HTMLElement
     fireEvent.click(textNode)
-    textNode.innerHTML = newContent
+    textNode.innerText = newContent
     fireEvent.blur(textNode)
 
     expect(handleChange).toHaveBeenCalledTimes(1)
@@ -35,10 +35,10 @@ describe('component: TextField', () => {
 
     const {container} = render(<TextField {...props} />)
     let textNode = container.querySelector('[contenteditable=true]') as HTMLElement
-    expect(textNode.innerHTML).toBe(props.displayContent)
+    expect(textNode.textContent).toBe(props.displayContent)
 
     fireEvent.click(textNode)
-    expect(textNode.innerHTML).toBe(props.content)
+    expect(textNode.textContent).toBe(props.content)
   })
 
   test('Field should be focussed on mounting', () => {

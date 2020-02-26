@@ -16,11 +16,10 @@ describe('component: NumberField', () => {
 
     let numberNode = container.querySelector('[contenteditable=true]') as HTMLElement
     fireEvent.click(numberNode)
-    numberNode.innerHTML = newValue.toString()
+    numberNode.innerText = newValue.toString()
     fireEvent.blur(numberNode)
 
     expect(handleChange).toHaveBeenCalledTimes(1)
     expect(handleChange).toHaveBeenCalledWith(newValue)
   })
-
 })

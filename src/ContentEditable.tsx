@@ -57,7 +57,7 @@ class ContentEditable extends React.Component<IContentEditableProps, {}> {
   }
 
   finishEditing = () => {
-    const newValue = this.elem && this.elem.innerHTML
+    const newValue = this.elem && this.elem.innerText
     this.setState({editing: false})
     this.props.onChange(newValue)
   }
